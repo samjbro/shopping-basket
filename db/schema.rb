@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108120654) do
+ActiveRecord::Schema.define(version: 20170108180351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "baskets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -23,4 +28,16 @@ ActiveRecord::Schema.define(version: 20170108120654) do
     t.datetime "updated_at",                         null: false
   end
 
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "basket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "line_items", ["basket_id"], name: "index_line_items_on_basket_id", using: :btree
+  add_index "line_items", ["item_id"], name: "index_line_items_on_item_id", using: :btree
+
+  add_foreign_key "line_items", "baskets"
+  add_foreign_key "line_items", "items"
 end
