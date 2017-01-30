@@ -29,7 +29,7 @@ class LineItemsController < ApplicationController
   def create
     item = Item.find(params[:item_id])
     # @line_item = LineItem.new(line_item_params)
-    @line_item = @basket.line_items.build(item: item)
+    @line_item = @basket.add_item(item.id)
 
     respond_to do |format|
       if @line_item.save
