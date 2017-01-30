@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal of the exercise is to create a checkout system that fulfills the criteria listed below :
 
-Things you may want to cover:
+Items can be added to a basket
+Items can be removed from a basket
+Promotions can be applied to a basket
+Promotions can be removed from a basket
+Basket can be checked out - a total price is calculated
+Customer’s Email, Address and Credit card details are required to check out
+Customers will have an Order after checking out which contains all the basket items
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+To run the project:
+1. `rake db:create`
+2. `rails s`
